@@ -18,11 +18,14 @@
   "host" : "petstore.swagger.wordnik.com",
   "basePath" : "/api",
   "tags" : [ {
-    "name" : "store"
+    "name" : "pet",
+    "description" : "Operations about pets"
   }, {
-    "name" : "user"
+    "name" : "store",
+    "description" : "Operations about store"
   }, {
-    "name" : "pet"
+    "name" : "user",
+    "description" : "Operations about user"
   } ],
   "schemes" : [ "http", "https" ],
   "paths" : {
@@ -102,7 +105,7 @@
             "default" : "available",
             "enum" : [ "available", "pending", "sold" ]
           },
-          "collectionFormat" : "csv"
+          "collectionFormat" : "multi"
         } ],
         "responses" : {
           "200" : {
@@ -139,7 +142,7 @@
           "items" : {
             "type" : "string"
           },
-          "collectionFormat" : "csv"
+          "collectionFormat" : "multi"
         } ],
         "responses" : {
           "200" : {
@@ -157,7 +160,8 @@
         },
         "security" : [ {
           "petstore_auth" : [ "write:pets", "read:pets" ]
-        } ]
+        } ],
+        "deprecated" : true
       }
     },
     "/pet/{petId}" : {
